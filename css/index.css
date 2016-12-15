@@ -1,0 +1,42 @@
+*{
+    padding:0;
+    margin:0;
+}
+ul{
+    list-style: none;
+}
+a,img{
+    display: block;
+}
+.content-main{
+    position: relative;
+    width: 800px;
+    height:411px;
+    background: #bbb9b9;
+}
+.content-btn{
+    position: absolute;
+    width:100px;
+    height:411px;
+    background: #bbbbbb;
+    z-index:10;
+    cursor: pointer;
+    opacity:0.5;
+}
+.prev-btn{
+    left:0;
+    top:0;
+}
+.next-btn{
+    right:0;
+    top:0;
+}
+.list{
+    width:800px;
+    height:411px;
+}
+.list li{
+    position: absolute;
+    left:0;
+    top:0;
+}
