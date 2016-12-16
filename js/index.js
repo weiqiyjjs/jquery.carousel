@@ -3,37 +3,70 @@
     var Carousel = function(con){
         var self = this;
         this.con = con;
+        this.setDirect();
         this.conItem = con.find("ul.list");
         this.prev = con.find(".prev-btn");
         this.next = con.find(".next-btn");
         this.conItems = con.find("li");
         this.conItemFirst = this.conItems.first();
         this.conItemLast = this.conItems.last();
+        this.flag = true;
         //默认配置参数
         this.settings = {
-            width:1000,             //幻灯片的宽度
-            height:270,             //幻灯片的高度
+            width:900,             //幻灯片的宽度
+            height:4110,             //幻灯片的高度
             postWidth:658,          //第一帧的宽度
-            postHeight:270,         //第一帧的高度
+            postHeight:411,         //第一帧的高度
             scale:0.8,
             speed:500,
-            verticalAlign:'center'
+            verticalAlign:'center',
+            autoPlay:false,
+            delay:1000
         }
         $.extend(this.settings,this.getSetting());
         this.setSettingValue();
         this.setPostOther();
-
         this.next.on("click",function(){
-            self.rotate("left");
+            if(self.flag){
+                self.flag = false;
+                self.rotate("left");
+            }
+
         });
         this.prev.on("click",function(){
-            self.rotate("right");
+            if(self.flag){
+                self.flag = false;
+                self.rotate("right");
+            }
         });
+        if(this.settings.autoPlay){
+            this.autoPlay();
+            this.con.hover(function(){
+                window.clearInterval(self.timer);
+            },function(){
+                self.autoPlay();
+            });
+        }
 
     }
 
     //原型方法
     Carousel.prototype = {
+        //设置上一张和下一张大小
+        setDirect:function(){
+            var prev = $("<div></div>").addClass("content-btn prev-btn").append($("<img/>").attr("src","img/left.png").addClass("btn-img"));
+            this.con.prepend(prev);
+            var next = $("<div></div>").addClass("content-btn next-btn").append($("<img/>").attr("src","img/right.png").addClass("btn-img"));
+            this.con.append(next);
+        },
+        //自动播放函数
+        autoPlay:function(){
+            var self = this;
+            this.timer = window.setInterval(function(){
+                self.next.click();
+            },this.settings.delay);
+        },
+
         //旋转函数
         rotate:function(dir){
             var _this = this;
@@ -48,6 +81,8 @@
                         top:prev.css("top"),
                         left:prev.css("left"),
                         opacity:prev.css("opacity")
+                    },_this.settings.speed,function(){
+                        _this.flag = true;
                     });
                 });
                 this.conItems.each(function(i){
@@ -63,6 +98,8 @@
                         top:next.css("top"),
                         left:next.css("left"),
                         opacity:next.css("opacity")
+                    },_this.settings.speed,function(){
+                        _this.flag = true;
                     });
                 });
                 this.conItems.each(function(i){
@@ -139,10 +176,18 @@
                 height:this.settings.height,
                 zIndex:Math.ceil((this.conItems.length)/2)
             });
+            this.prev.find("img").css({
+                width:w,
+                height:w,
+            });
             this.next.css({
                 width:w,
                 height:this.settings.height,
                 zIndex:Math.ceil((this.conItems.length)/2)
+            });
+            this.next.find("img").css({
+                width:w,
+                height:w
             });
             this.conItemFirst.css({
                 top:0,

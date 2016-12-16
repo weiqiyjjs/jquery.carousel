@@ -6,23 +6,20 @@
     <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
-<div class="carousel content-main" data-setting = '{
-        "width":800,
-        "height":411,
-        "postWidth":658,
-        "postHeight":411,
-        "scale":0.9,
-        "speed":"500"
-}'>
-    <div class="content-btn prev-btn"></div>
+<div class="carousel content-main">
     <ul class="list">
-        <li style="background: url(img/photo_1.jpg);background-size: cover"></li>
-        <li style="background: url(img/photo_2.jpg);background-size: cover"></li>
-        <li style="background: url(img/photo_3.jpg);background-size: cover"></li>
-        <li style="background: url(img/photo_4.jpg);background-size: cover"></li>
-        <li style="background: url(img/photo_5.jpg);background-size: cover"></li>
+        <li><img src="img/photo_1.jpg"/></li>
+        <li><img src="img/photo_2.jpg"/></li>
+        <li><img src="img/photo_3.jpg"/></li>
+        <li><img src="img/photo_4.jpg"/></li>
+        <li><img src="img/photo_5.jpg"/></li>
+        <li><img src="img/photo_3.jpg"/></li>
+        <li><img src="img/photo_4.jpg"/></li>
+        <li><img src="img/photo_5.jpg"/></li>
+        <li><img src="img/photo_3.jpg"/></li>
+        <li><img src="img/photo_4.jpg"/></li>
+        <li><img src="img/photo_5.jpg"/></li>
     </ul>
-    <div class="content-btn next-btn"></div>
 </div>
 <script src="js/jquery-2.2.3.min.js"></script>
 <script src="js/index.js"></script>
@@ -36,6 +33,7 @@
         speed:500,
         verticalAlign:"center"
     }
+    $(".carousel").attr("data-setting",'{ "width":900,"height":411,"postWidth":658}')
     Carousel.init($(".carousel"))
 </script>
 </body>
