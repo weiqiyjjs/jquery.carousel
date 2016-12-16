@@ -6,7 +6,39 @@
     <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
-<div class="carousel content-main">
+<div id="test1" class="carousel content-main">
+    <ul class="list">
+        <li><img src="img/photo_1.jpg"/></li>
+        <li><img src="img/photo_2.jpg"/></li>
+        <li><img src="img/photo_3.jpg"/></li>
+        <li><img src="img/photo_4.jpg"/></li>
+        <li><img src="img/photo_5.jpg"/></li>
+        <li><img src="img/photo_3.jpg"/></li>
+        <li><img src="img/photo_4.jpg"/></li>
+        <li><img src="img/photo_5.jpg"/></li>
+        <li><img src="img/photo_3.jpg"/></li>
+        <li><img src="img/photo_4.jpg"/></li>
+        <li><img src="img/photo_5.jpg"/></li>
+    </ul>
+</div>
+<br>
+<div id="test2" class="carousel content-main">
+    <ul class="list">
+        <li><img src="img/photo_1.jpg"/></li>
+        <li><img src="img/photo_2.jpg"/></li>
+        <li><img src="img/photo_3.jpg"/></li>
+        <li><img src="img/photo_4.jpg"/></li>
+        <li><img src="img/photo_5.jpg"/></li>
+        <li><img src="img/photo_3.jpg"/></li>
+        <li><img src="img/photo_4.jpg"/></li>
+        <li><img src="img/photo_5.jpg"/></li>
+        <li><img src="img/photo_3.jpg"/></li>
+        <li><img src="img/photo_4.jpg"/></li>
+        <li><img src="img/photo_5.jpg"/></li>
+    </ul>
+</div>
+<br>
+<div id="test3" class="carousel content-main">
     <ul class="list">
         <li><img src="img/photo_1.jpg"/></li>
         <li><img src="img/photo_2.jpg"/></li>
@@ -24,16 +56,9 @@
 <script src="js/jquery-2.2.3.min.js"></script>
 <script src="js/index.js"></script>
 <script>
-    var setting = {
-        width:1000,
-        height:270,
-        postWidth:658,
-        postHeight:270,
-        scale:0.8,
-        speed:500,
-        verticalAlign:"center"
-    }
-    $(".carousel").attr("data-setting",'{ "width":900,"height":411,"postWidth":658}')
+    $("#test1").attr("data-setting",'{ "width":900,"height":411,"postWidth":658}')
+    $("#test2").attr("data-setting",'{ "width":900,"height":411,"postWidth":658,"autoPlay":"true","verticalAlign":"bottom"}')
+    $("#test3").attr("data-setting",'{ "width":900,"height":411,"postWidth":658,"verticalAlign":"top"}')
     Carousel.init($(".carousel"))
 </script>
 </body>
