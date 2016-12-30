@@ -22,7 +22,8 @@
             verticalAlign:'center',
             autoPlay:false,
             delay:1000
-        }
+        };
+        this.timer = null;
         $.extend(this.settings,this.getSetting());
         this.setSettingValue();
         this.setPostOther();
@@ -62,9 +63,9 @@
         //自动播放函数
         autoPlay:function(){
             var self = this;
-            this.timer = window.setInterval(function(){
+            self.timer = window.setInterval(function(){
                 self.next.click();
-            },this.settings.delay);
+            },self.settings.delay);
         },
 
         //旋转函数
